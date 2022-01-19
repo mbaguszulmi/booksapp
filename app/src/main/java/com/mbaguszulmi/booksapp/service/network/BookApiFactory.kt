@@ -4,10 +4,9 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 
-object BookApi {
+object BookApiFactory {
     private const val baseUrl = "https://www.googleapis.com/books/v1/"
 
     private val client: OkHttpClient get() = OkHttpClient.Builder().apply {
@@ -25,5 +24,5 @@ object BookApi {
         addConverterFactory(GsonConverterFactory.create())
     }.build()
 
-    fun create(): BookApiDAO = retrofit.create(BookApiDAO::class.java)
+    fun create(): BookApiService = retrofit.create(BookApiService::class.java)
 }

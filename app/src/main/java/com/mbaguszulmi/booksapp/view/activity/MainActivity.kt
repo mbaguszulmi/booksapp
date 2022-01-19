@@ -8,12 +8,16 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.mbaguszulmi.booksapp.R
 import com.mbaguszulmi.booksapp.databinding.ActivityMainBinding
 import com.mbaguszulmi.booksapp.view.fragment.FavoriteFragment
 import com.mbaguszulmi.booksapp.view.fragment.HomeFragment
 import com.mbaguszulmi.booksapp.view.fragment.SettingsFragment
+import com.mbaguszulmi.booksapp.viewmodel.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var searchItem: MenuItem? = null
@@ -23,6 +27,8 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        ViewModelProvider(this)[MainViewModel::class.java]
 
         initView()
     }
