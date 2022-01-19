@@ -1,5 +1,6 @@
 package com.mbaguszulmi.booksapp.view.adapter
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -33,13 +34,14 @@ class BookListAdapter(
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateData(bookList: List<Books>) {
         with(this.bookList) {
             clear()
             addAll(bookList)
         }
 
-        notifyItemRangeChanged(0, itemCount)
+        notifyDataSetChanged()
         Log.d("BookListAdapter", "Updating...")
     }
 

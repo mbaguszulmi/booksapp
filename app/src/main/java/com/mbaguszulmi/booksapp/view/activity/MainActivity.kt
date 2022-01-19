@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.mbaguszulmi.booksapp.R
 import com.mbaguszulmi.booksapp.databinding.ActivityMainBinding
 import com.mbaguszulmi.booksapp.view.fragment.FavoriteFragment
@@ -22,13 +22,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var searchItem: MenuItem? = null
 
+    private val mainViewModel by viewModels<MainViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        ViewModelProvider(this)[MainViewModel::class.java]
 
         initView()
     }
@@ -61,7 +61,9 @@ class MainActivity : AppCompatActivity() {
 
         searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(q: String?): Boolean {
-                // TODO: Set current query value
+                mainViewModel.setQuery(q)
+                mainViewModel.searchBook()
+
                 return true
             }
 
@@ -76,7 +78,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onMenuItemActionCollapse(p0: MenuItem?): Boolean {
-                // TODO: Reset query to empty string
+                mainViewModel.setQuery(null)
+                mainViewModel.searchBook()
                 return true
             }
 
@@ -86,7 +89,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changeFragment(fragment: Fragment, id: Int): Boolean {
-        // TODO: Set current menu id = id
+        mainViewModel.menuId = id
 
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.mainFcm, fragment)

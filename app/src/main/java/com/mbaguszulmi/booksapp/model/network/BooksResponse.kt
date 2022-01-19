@@ -4,9 +4,9 @@ import com.mbaguszulmi.booksapp.model.local.Books
 
 data class BooksResponse(
     val totalItems: Int,
-    val items: List<BooksNetwork>
+    val items: List<BooksNetwork>?
 ) {
-    fun getBooksList() = items.map {
+    fun getBooksList() = items?.map {
         Books.fromBooksNetwork(it)
-    }
+    } ?: ArrayList()
 }

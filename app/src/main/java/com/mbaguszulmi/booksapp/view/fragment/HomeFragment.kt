@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mbaguszulmi.booksapp.databinding.FragmentHomeBinding
@@ -37,7 +38,6 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initView()
-        mainViewModel.searchBook()
     }
 
     private fun initView() {
@@ -49,12 +49,17 @@ class HomeFragment : Fragment() {
         binding.rvMain.adapter = adapter
 
         mainViewModel.books.observe(requireActivity()) {
-            Log.d("HomeFragment", "Updating From Fragment... ${it.size}")
+            binding.rvMain.isVisible = it.isNotEmpty()
+            binding.tvEmpty.isVisible = it.isEmpty()
             adapter.updateData(it)
         }
 
         mainViewModel.isLoading.observe(requireActivity()) {
+            binding.pbLoading.isVisible = it
+        }
 
+        mainViewModel.errorMessage.observe(requireActivity()) {
+            binding.tvError.isVisible = it != null
         }
     }
 
