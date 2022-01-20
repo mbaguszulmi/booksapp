@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.Target
 import com.mbaguszulmi.booksapp.databinding.ListItemBookBinding
 import com.mbaguszulmi.booksapp.model.local.Books
 

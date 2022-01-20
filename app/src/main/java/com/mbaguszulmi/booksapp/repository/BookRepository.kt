@@ -1,7 +1,6 @@
 package com.mbaguszulmi.booksapp.repository
 
 import com.mbaguszulmi.booksapp.model.local.Books
-import com.mbaguszulmi.booksapp.model.network.BooksNetwork
 import com.mbaguszulmi.booksapp.service.network.BookApiService
 
 class BookRepository(private val bookApiService: BookApiService) {

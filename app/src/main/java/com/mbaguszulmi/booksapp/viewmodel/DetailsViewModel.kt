@@ -10,7 +10,6 @@ import com.mbaguszulmi.booksapp.model.local.Books
 import com.mbaguszulmi.booksapp.repository.BookRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel

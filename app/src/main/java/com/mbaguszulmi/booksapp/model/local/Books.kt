@@ -1,9 +1,8 @@
 package com.mbaguszulmi.booksapp.model.local
 
-import java.text.SimpleDateFormat
 import com.mbaguszulmi.booksapp.model.network.BooksNetwork
-import java.lang.Exception
 import java.text.NumberFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
 data class Books(

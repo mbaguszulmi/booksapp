@@ -3,13 +3,12 @@ package com.mbaguszulmi.booksapp.view.activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.mbaguszulmi.booksapp.R

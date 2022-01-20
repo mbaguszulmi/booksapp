@@ -2,11 +2,11 @@ package com.mbaguszulmi.booksapp.view.activity
 
 import android.app.SearchManager
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.mbaguszulmi.booksapp.R

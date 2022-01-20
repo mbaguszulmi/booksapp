@@ -1,26 +1,15 @@
 package com.mbaguszulmi.booksapp.view.fragment
 
+import android.content.Intent
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.preference.ListPreference
 import androidx.preference.PreferenceFragmentCompat
 import com.mbaguszulmi.booksapp.R
-import java.util.*
-import android.content.res.Resources
-
 import java.util.Locale
-
-import android.app.Activity
-import android.content.res.Configuration
-import android.util.Log
-import androidx.preference.ListPreference
-import android.content.Intent
-
-
-
 
 
 /**
