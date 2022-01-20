@@ -11,7 +11,6 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.mbaguszulmi.booksapp.R
 import com.mbaguszulmi.booksapp.databinding.ActivityMainBinding
-import com.mbaguszulmi.booksapp.view.fragment.FavoriteFragment
 import com.mbaguszulmi.booksapp.view.fragment.HomeFragment
 import com.mbaguszulmi.booksapp.view.fragment.SettingsFragment
 import com.mbaguszulmi.booksapp.viewmodel.MainViewModel
@@ -35,7 +34,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun initView() {
         val homeFragment = HomeFragment.newInstance()
-        val favoriteFragment = FavoriteFragment.newInstance()
         val settingsFragment = SettingsFragment.newInstance()
 
         changeFragment(homeFragment, R.id.mi_home)
@@ -43,7 +41,6 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.mi_home -> changeFragment(homeFragment, it.itemId)
-                R.id.mi_favorite -> changeFragment(favoriteFragment, it.itemId)
                 R.id.mi_settings -> changeFragment(settingsFragment, it.itemId)
                 else -> false
             }
@@ -100,9 +97,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.title = when(id) {
             R.id.mi_home -> "Home"
             R.id.mi_settings -> "Settings"
-            R.id.mi_favorite -> {
-                "Favorites"
-            }
             else -> getString(R.string.app_name)
         }
 
