@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Books App</string>
+    <string name="book_published_date">Diterbitkan pada %1$s</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_settings">Pengaturan</string>
+    <string name="menu_search">Cari</string>
+    <string name="dummy_author">Penulis</string>
+    <string name="dummy_year">Tahun</string>
+    <string name="dummy_categories">Kategori</string>
+    <string name="books_not_found">Buku Tidak Ditemukan</string>
+    <string name="find_info">Cari Info</string>
+    <string name="missing_book_id">Tidak dapat menemukan ID Buku</string>
+    <string name="find_books">Cari Buku</string>
+    <string name="book_fetch_failure">Gagal mendapatkan detail Buku</string>
+    <string name="languages">Bahasa</string>
+    <string name="descriptions">Deskripsi</string>
+    <string name="dummy_book_title">Judul Buku</string>
+    <string name="dummy_publisher">Penerbit</string>
+</resources>
