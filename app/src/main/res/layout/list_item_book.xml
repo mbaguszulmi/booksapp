@@ -43,7 +43,7 @@
                 android:layout_marginEnd="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="TextView"
+                android:text="@string/dummy_textview"
                 android:textColor="#000000"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="IDR --"
+                android:text="@string/dummy_price"
                 app:layout_constraintStart_toEndOf="@+id/iv_book_cover"
                 app:layout_constraintTop_toBottomOf="@+id/tv_book_categories" />
 
@@ -70,7 +70,7 @@
                 android:ellipsize="end"
                 android:maxEms="12"
                 android:maxLines="1"
-                android:text="Author"
+                android:text="@string/dummy_author"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/iv_book_cover"
                 app:layout_constraintTop_toBottomOf="@+id/tv_book_title" />
@@ -88,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingEnd="8dp"
-                android:text="Year"
+                android:text="@string/dummy_year"
                 app:layout_constraintStart_toEndOf="@+id/include"
                 app:layout_constraintTop_toTopOf="@+id/tv_authors" />
 
@@ -101,7 +101,7 @@
                 android:layout_marginEnd="8dp"
                 android:drawableStart="@drawable/ic_baseline_label_24"
                 android:drawablePadding="4dp"
-                android:text="Categories"
+                android:text="@string/dummy_categories"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_book_cover"
                 app:layout_constraintTop_toBottomOf="@+id/tv_authors" />

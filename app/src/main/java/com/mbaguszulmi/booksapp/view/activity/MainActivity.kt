@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = searchItem?.actionView as SearchView
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-        searchView.queryHint = "Find Books"
+        searchView.queryHint = getString(R.string.find_books)
 
         searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(q: String?): Boolean {
@@ -87,16 +87,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changeFragment(fragment: Fragment, id: Int): Boolean {
-        mainViewModel.menuId = id
-
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.mainFcm, fragment)
             commit()
         }
 
         supportActionBar?.title = when(id) {
-            R.id.mi_home -> "Home"
-            R.id.mi_settings -> "Settings"
+            R.id.mi_home -> getString(R.string.title_home)
+            R.id.mi_settings -> getString(R.string.title_settings)
             else -> getString(R.string.app_name)
         }
 

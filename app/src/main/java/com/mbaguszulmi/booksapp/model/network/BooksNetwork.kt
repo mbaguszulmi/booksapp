@@ -24,8 +24,8 @@ data class BooksNetwork(
             val thumbnail: String?
         )
 
-        fun getAuthorsStr(): String = authors?.joinToString(",") ?: "No Authors"
-        fun getCategoriesStr(): String = categories?.joinToString(",") ?: "Book"
+        fun getAuthorsStr(): String = authors?.joinToString(",") ?: ""
+        fun getCategoriesStr(): String = categories?.joinToString(",") ?: ""
     }
 
     data class SaleInfo(

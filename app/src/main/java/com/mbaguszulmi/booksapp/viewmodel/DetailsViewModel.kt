@@ -1,9 +1,11 @@
 package com.mbaguszulmi.booksapp.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mbaguszulmi.booksapp.R
 import com.mbaguszulmi.booksapp.model.local.Books
 import com.mbaguszulmi.booksapp.repository.BookRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,14 +23,14 @@ class DetailsViewModel @Inject constructor(private val bookRepository: BookRepos
         isLoadingLiveData.value = true
     }
 
-    fun fetchDetails(id: String) {
+    fun fetchDetails(id: String, context: Context) {
         isLoadingLiveData.value = true
 
         viewModelScope.launch {
             try {
                 val book = bookRepository.getBookDetails(id)
                 if (book == null) {
-                    errorMessageLiveData.value = "Failed to get book details"
+                    errorMessageLiveData.value = context.getString(R.string.book_fetch_failure)
                 } else {
                     detailsLiveData.value = book
                 }

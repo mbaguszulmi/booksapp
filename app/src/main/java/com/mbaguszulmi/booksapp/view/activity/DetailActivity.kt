@@ -1,12 +1,13 @@
 package com.mbaguszulmi.booksapp.view.activity
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
@@ -35,13 +36,20 @@ class DetailActivity : AppCompatActivity() {
 
         bookId = intent.getStringExtra(EXTRA_BOOK_ID) ?: ""
         if (bookId.isEmpty()) {
-            Toast.makeText(this, "Cannot find Book ID", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.missing_book_id), Toast.LENGTH_LONG).show()
             finish()
         }
 
-        detailsViewModel.fetchDetails(bookId)
+        detailsViewModel.fetchDetails(bookId, this)
 
         initView()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun initView() {
