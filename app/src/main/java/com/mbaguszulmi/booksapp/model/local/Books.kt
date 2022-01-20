@@ -4,8 +4,6 @@ import java.text.SimpleDateFormat
 import com.mbaguszulmi.booksapp.model.network.BooksNetwork
 import java.lang.Exception
 import java.text.NumberFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 data class Books(
@@ -58,20 +56,29 @@ data class Books(
 
     fun getYear(): String {
         return publishedDate?.let {
-            val date: Date? = try {
-                SimpleDateFormat("yyyy-MM-dd", Locale.US).parse(it)
+            val date: Date = parseDate(it) ?: return ""
+            SimpleDateFormat("yyyy", Locale.US).format(date)
+        } ?: ""
+    }
+
+    private fun parseDate(str: String): Date? = try {
+            SimpleDateFormat("yyyy-MM-dd", Locale.US).parse(str)
+        } catch (e: Exception) {
+            try {
+                SimpleDateFormat("yyyy-MM", Locale.US).parse(str)
             } catch (e: Exception) {
                 try {
-                    SimpleDateFormat("yyyy-MM", Locale.US).parse(it)
+                    SimpleDateFormat("yyyy", Locale.US).parse(str)
                 } catch (e: Exception) {
-                    try {
-                        SimpleDateFormat("yyyy", Locale.US).parse(it)
-                    } catch (e: Exception) {
-                        return ""
-                    }
+                    null
                 }
             }
-            SimpleDateFormat("yyyy", Locale.US).format(date!!)
+        }
+
+    val formattedPublishedDate get(): String {
+        return publishedDate?.let {
+            val date: Date = parseDate(it) ?: return ""
+            SimpleDateFormat("yyyy-MM-dd", Locale.US).format(date)
         } ?: ""
     }
 

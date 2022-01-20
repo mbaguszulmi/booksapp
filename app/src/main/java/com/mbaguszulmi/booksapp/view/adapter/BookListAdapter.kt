@@ -14,7 +14,7 @@ import com.mbaguszulmi.booksapp.model.local.Books
 
 class BookListAdapter(
     private val bookList: MutableList<Books>,
-    private val onItemClickListener: (id: Int)-> Unit)
+    private val onItemClickListener: (id: String)-> Unit)
     : RecyclerView.Adapter<BookListAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: ListItemBookBinding)
@@ -31,6 +31,11 @@ class BookListAdapter(
                 .load(book.thumbnail)
                 .centerCrop()
                 .into(binding.ivBookCover)
+
+
+            itemView.setOnClickListener {
+                onItemClickListener(book.id)
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 package com.mbaguszulmi.booksapp.view.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,6 +12,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mbaguszulmi.booksapp.databinding.FragmentHomeBinding
 import com.mbaguszulmi.booksapp.model.local.Books
+import com.mbaguszulmi.booksapp.view.activity.DetailActivity
 import com.mbaguszulmi.booksapp.view.adapter.BookListAdapter
 import com.mbaguszulmi.booksapp.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,7 +45,11 @@ class HomeFragment : Fragment() {
     private fun initView() {
         Log.d("HomeFragment", "initView called")
         val adapter = BookListAdapter(mainViewModel.booksValue as MutableList<Books>) {
-            // TODO: navigate to details activity with id
+            val detailsIntent = Intent(requireContext(), DetailActivity::class.java).apply {
+                putExtra(DetailActivity.EXTRA_BOOK_ID, it)
+            }
+
+            startActivity(detailsIntent)
         }
         binding.rvMain.layoutManager = LinearLayoutManager(requireContext())
         binding.rvMain.adapter = adapter
